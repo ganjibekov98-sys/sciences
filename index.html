@@ -701,7 +701,7 @@
             
             </div>  
             <div class="chats" id="messages3">
-                <button class="close" id="close">x</button>
+                <button class="close" id="closenew">x</button>
                 <div class="messagesdiv" id="themessages">
                                
                 </div>
@@ -800,18 +800,7 @@
 
         <script>
             const socket = io()
-            let theinput2 = document.getElementById("thetexts")
-            theinput2.addEventListener("click", () => {
-                document.getElementById("messages3").style.opacity = '1'
-                document.getElementById("textsend").style.opacity = '1'
-            })            
-            const closebtn2 = document.getElementById("close")
-            closebtn2.addEventListener("click", () => {   
-                document.getElementById("messages3").style.opacity = '0'
-                document.getElementById("textsend").style.opacity = '0'
-            })
-            
-                
+                    
             document.getElementById("textsend").addEventListener("click", () => {              
             
                 let themessage = document.getElementById("thetexts").value
@@ -958,20 +947,17 @@
                 }
                 
                 
-            }, 1000)    
-                       
+            }, 1000)                       
             
                
-            document.getElementById("messages").style.opacity = '0'         
-            const closebtn = document.getElementById("close")
+                    
+            const closebtn = document.getElementById("closenew")
             closebtn.addEventListener("click", () => {   
                 document.getElementById("messages3").style.opacity = '0'
                 document.getElementById("textsend").style.opacity = '0'
                 document.getElementById("messages3").style.left = '-500px'
             })
-            
-                    
-            
+              
               
             let theinputt = document.getElementById("thetexts")
             theinputt.addEventListener("click", () => {
