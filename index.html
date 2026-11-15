@@ -800,6 +800,20 @@
 
         <script>
             const socket = io()
+            const closebtn = document.getElementById("closenew")
+            closebtn.addEventListener("click", () => {   
+                document.getElementById("messages3").style.opacity = '0'
+                document.getElementById("textsend").style.opacity = '0'
+                document.getElementById("messages3").style.left = '-500px'
+            })
+              
+              
+            let theinputt = document.getElementById("thetexts")
+            theinputt.addEventListener("click", () => {
+                document.getElementById("messages3").style.opacity = '1'
+                document.getElementById("textsend").style.opacity = '1'
+                document.getElementById("messages3").style.left = 'auto'
+            })  
                     
             document.getElementById("textsend").addEventListener("click", () => {              
             
@@ -951,20 +965,7 @@
             
                
                     
-            const closebtn = document.getElementById("closenew")
-            closebtn.addEventListener("click", () => {   
-                document.getElementById("messages3").style.opacity = '0'
-                document.getElementById("textsend").style.opacity = '0'
-                document.getElementById("messages3").style.left = '-500px'
-            })
-              
-              
-            let theinputt = document.getElementById("thetexts")
-            theinputt.addEventListener("click", () => {
-                document.getElementById("messages3").style.opacity = '1'
-                document.getElementById("textsend").style.opacity = '1'
-                document.getElementById("messages3").style.left = 'auto'
-            })  
+            
             
                                            
         </script>    
