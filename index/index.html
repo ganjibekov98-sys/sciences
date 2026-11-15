@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Изучении математики</title>
+        <style>
+            html, body {
+                width: 100%;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                background-color: #ffffff;
+            }
+            .newcont {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+                padding: 10px;                
+            }
+            .rowcont {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+            }
+            .pointsbutton {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: green;
+                font-size: 23px;
+                color: white;
+                border-radius: 5px;
+                border: 3px solid green;        
+            }
+            .intro {
+                background-color: #f4f4f4;
+                border-radius: 5px;
+                padding: 10px;
+                color: black;
+                font-weight: bold;
+                font-size: 18px;
+                max-width: 350px;
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .text {
+                color: green;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .rowdiv {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 10px;
+                border: 3px solid green;
+                margin: 15px;
+            }
+            .count2 {
+                background-color: red;
+                border-radius: 5px;
+                margin: 10px;
+                width: 40px;
+                height: 40px;
+                color: white;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            .count3 {
+                background-color: green;
+                border-radius: 5px;
+                margin: 10px;
+                width: 40px;
+                height: 40px;
+                color: white;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            .explanation {
+                padding: 10px;
+                background-color: white;
+                font-size: 20px;
+                color: green;
+                border-radius: 5px;            
+            }
+            .explanation2 {
+                padding: 10px;
+                background-color: #f4f4f4;
+                font-size: 22px;
+                color: black;
+                border-radius: 5px;  
+                margin: 20px;          
+            }
+
+            .lessoncontainer {
+                width: 720px;
+                border-radius: 8px;
+                background-color: pink;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                
+            }
+            .header {
+                padding-left: 25px;
+                padding-right: 25px;
+                padding-bottom: 20px;
+                padding-top: 20px;
+                background-color: red;
+                font-size: 20px;
+                border-radius: 8px;
+                color: white;
+            
+            }
+            .expln {
+                width: 90%;
+                padding: 10px;
+                background-color: #f4f4f4;
+                border-radius: 5px;
+                color: black;
+                
+                font-size: 22px;
+                margin: 25px;
+            }
+            .deep {
+                width: 90%;
+                padding: 10px;
+                background-color: violet;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+            .div {
+                margin: 40px;
+                display: grid;
+                grid-template-columns: 40px 40px 40px;
+                grid-template-rows: 40px 40px;
+                gap: 10px;
+                padding: 10px;
+                border: 3px solid green;
+            }
+            .est {
+                padding: 10px;
+                background-color: crimson;
+                font-size: 20px;
+                color: white;
+                border-radius: 5px;
+                border: 3px solid crimson;
+                transition: 0.5s ease;
+            }
+            .est:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+            .count {
+                background-color: red;
+                border-radius: 5px;
+                
+            }
+            .explanation {
+                padding: 10px;
+                background-color: white;
+                font-size: 20px;
+                color: green;
+                border-radius: 5px;      
+                margin: 10px;      
+            }
+            .estnew {
+                padding: 10px;
+                background-color: #ffffff;
+                border-radius: 5px;
+                margin: 15px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .pointer {
+                font-size: 34px;
+                color: white;
+
+            }
+            .inp {
+                padding: 10px;
+                border-radius: 5px;
+                width: 150px;
+                border: 3px solid yellow;
+                margin: 10px;
+            }
+            .chats {
+                position: fixed;  
+                bottom: 3px;  
+                left: auto;            
+                width: 720px;
+                height: 210px;
+                background-color: lightgreen;
+                border-radius: 5px;
+                margin: 3px;
+                padding: 0px;                
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                opacity: 1;
+            }
+            .inpt {
+                width: 400px;
+                padding: 13px;
+                background-color: #ffffff;
+                border-radius: 5px;
+                border: 3px solid yellow;
+                margin: 10px;    
+                opacity: 1;  
+                font-size: 22px;          
+            }
+            .open {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: fixed;
+                bottom: 10px;
+                left: auto;
+                width: 720px;
+                
+                padding: 0px;
+            }
+            .btn {
+                width: 75px;
+                height: 75px;
+                border-radius: 50%;
+                background-color: black;
+                color: white;
+                font-size: 20px;
+            }
+            .btn:hover {
+                cursor: pointer;
+            }
+            .close {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: grey;
+                font-size: 18px;
+                transition: 0.2s ease;
+                                  
+            }
+            .close:hover {
+                background-color: red;
+                color: white;
+            }
+            .messagesdiv {
+                width: 96%;
+                height: 80%;
+                background-color: lightgreen;
+                overflow-y: auto;
+                margin: 2px;
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .textmessage {
+                padding: 10px;
+                border-radius: 5px;
+                background-color: blueviolet;
+                color: white;
+                font-size: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 10px;
+                max-width: 400px;
+            }
+            @media (max-width: 720px) {
+                .textmessage {
+                    max-width: 96%;
+                }
+            }
+            .img {
+                width: 600px;
+                height: 300px;
+                border-radius: 5px;
+            }
+            .mess {
+                font-size: 22px;
+                color: green;
+            }
+            .option {
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .container {
+                background-color: white;
+                padding: 5px;
+                border-radius: 6px;
+            }
+            th {
+                border: 3px solid black;    
+                margin: 0px;   
+                padding: 10px; 
+                font-size: 26px;       
+            }
+            table  {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            td {
+                border: 3px solid black;
+                
+                padding: 10px;
+                font-size: 26px;
+            }
+            .seconds {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: red;
+                color: white;
+                font-size: 23px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .contain {
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                           
+            }
+            .sign {
+                font-size: 30px;
+                color: red;
+                font-weight: bold;
+            }
+            .new {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .conts {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-weight: bold;
+                font-size: 20px;
+                margin: 10px;
+                background-color: #f4f4f4;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            .pointsbtn {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-radius: 5px;
+                background-color: violet;
+                color: white;
+                font-size: 22px;
+                position: fixed;
+                top: 15px;
+            }
+           
+            .questbtns {
+                padding-left: 90px;
+                padding-right: 90px;
+                background-color: goldenrod;
+                color: white;
+                font-size: 26px;
+                border-radius: 5px;
+                margin: 10px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border: 3px solid goldenrod;
+                transition: 0.4s ease;
+
+            }
+            .questbtns2 {
+                padding-left: 90px;
+                padding-right: 90px;
+                background-color: goldenrod;
+                color: white;
+                font-size: 26px;
+                border-radius: 5px;
+                margin: 10px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border: 3px solid goldenrod;
+                transition: 0.5s ease;
+
+            }
+            .questbtns2:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+            
+            .questbtns:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+            .turn {
+                background-color: green;
+            }
+            .texts {
+                padding: 10px;
+                background-color: gray;
+            }
+            .pointstext {
+                max-width: 70px;
+                font-size: 20px;
+                color: lightgreen;
+            }
+            .newbtn {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
+                font-size: 22px;
+                margin: 10px;
+                
+            }
+            .points {
+                padding: 20px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                color: green;
+                font-size: 20px;
+                width: 500px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                opacity: 1;
+                font-weight: bold;
+                margin: 10px;
+            
+
+            }
+            .pointsdiv {
+                width: 200px;
+                height: 200px;
+                background-color: black;
+                position: absolute;
+                left: 300px;
+                bottom: 200px;
+
+            }
+            .newbtn:hover {
+                cursor: pointer;
+            }
+            .p {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .righttext {
+                font-size: 20px;
+                color: red;
+                font-weight: bold;
+                margin: 10px;
+            }
+            .righttext2 {
+                font-size: 20px;
+                color: green;
+                margin: 10px;
+                font-weight: bold;
+            }
+            .animationdiv {
+                width: 600px;
+                padding-top: 10px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                margin: 10px;
+                border-bottom: 20px solid darkorange;
+                padding-bottom: 0px;
+                padding-left: 3px;
+                       
+            }
+            .object {
+                width: 100px;
+                height: 40px;
+                border-radius: 8px;
+                background-color: red;
+                animation: move 4s ease infinite;
+                color: white;
+                font-size: 18px;
+                transition: 3s ease;
+                
+            }
+            .quest {
+                font-size: 24px;
+                font-weight: bold;
+                color: black;
+            }
+            .animable {
+                padding: 10px;
+                background-color: #f4f4f4;
+                border-radius: 8px;
+                margin: 10px;
+            }
+            .head {
+                font-size: 22px;
+                column-rule: black;
+                font-weight: bold;
+            }
+            .tr {
+                font-size: 22px;
+                font-weight: bold;
+                color: blue;
+            }
+            .tr2 {
+                font-size: 22px;
+                font-weight: bold;
+                color: crimson;
+            }
+            @keyframes move {
+                0% {
+                    transform: translateX(0px);
+                }
+                100% {
+                    transform: translateX(500px);
+                }
+            }
+            .compt {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                padding-left: 10px;
+                padding-right: 10px;
+                border-radius: 8px;
+                background-color: black;
+                font-size: 18px;
+                color: white;
+                margin: 10px;
+            }
+            .compt2 {
+                padding: 15px;
+                border-radius: 8px;
+                background-color: black;
+                font-size: 22px;
+                color: white;
+                margin: 10px;
+            }
+            .textss {
+                font-size: 27px;
+                font-weight: bold;
+            }
+            .inpts {
+                width: 250px;
+                padding: 8px;
+                border-radius: 8px;
+                border: 3px solid yellow;
+                font-size: 25px;
+            }
+            .thequests {
+                padding: 10px;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 10px;
+            }     
+            .restext {
+                font-size: 30px;
+                color: red;
+                margin: 15px;
+            }   
+            .th {
+                font-size: 23px;
+                color: blue;
+                padding: 15px;
+            }  
+            .td {
+                font-size: 26px;
+                color: white;
+                padding: 15px;
+                font-weight: bold;
+                background-color: green;
+            } 
+            .td2 {
+                font-size: 26px;
+                color: green;
+                padding: 15px;
+                font-weight: bold;
+                color: white;
+            }   
+            .resultdiv {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 5px;
+                background-color: #f4f4f4;
+                font-size: 34px;
+                color: green;
+                min-width: 600px;
+                min-height: 200px;
+                padding: 10px;
+                font-weight: bold;
+                
+            }
+            .close {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: grey;
+                font-size: 18px;
+                transition: 0.2s ease;
+                                  
+            }   
+            .chats {
+                position: fixed;  
+                bottom: 3px;  
+                left: auto;            
+                width: 720px;
+                height: 210px;
+                background-color: lightgreen;
+                border-radius: 5px;
+                margin: 3px;
+                padding: 0px;                
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                opacity: 1;
+            }          
+            
+            
+        </style>
+    </head>
+    <body>
+        <div class="newcont">
+            <button class="compt" id="go">Пройти соревнование</button>
+            <div class="intro">Добро пожаловать на наш сайт! 🎓
+Здесь мы изучаем математику не через зубрёжку, а через понимание. Учимся разбираться, а не просто запоминать. 🧠</div>
+           
+        </div>
+        <div class="newcont">
+            
+    <div class="lessoncontainer" id="lesson">
+        
+        <div class="expln">Что такое умножение?
+
+Умножение — это не просто способ быстро складывать числа. Это способ объединить одинаковые группы.
+
+Например:
+
+3 × 4 означает, что у нас есть 3 группы по 4:
+
+4 + 4 + 4 = 12
+
+Поэтому:
+
+3 × 4 = 12
+
+Но умножение можно понять ещё глубже. Оно показывает, сколько всего получится, если взять одинаковое количество несколько раз.
+
+Например, если в одной коробке 6 карандашей, а коробок 5:
+
+5 × 6 = 30
+
+
+Мы не просто запоминаем, что 5 × 6 = 30. Мы понимаем, почему получается 30.</div>
+        <div class="deep">                       
+            <div class="div">
+                <div class="count"></div>
+                <div class="count"></div>
+                <div class="count"></div>
+                <div class="count"></div>
+                <div class="count"></div>
+                <div class="count"></div>                
+            </div>
+            <div class="explanation">Ребята, в школе мы всегда зубрили, что 3 × 2 = 6. Это так, но на таких сайтах, как этот, мы можем понять глубину и красоту математики.
+
+Возникает вопрос: почему 3 × 2 равно 6?
+
+Ответ: посмотрите на эти квадратики. Их 3 слева направо (по горизонтали) и 2 сверху вниз (по вертикали). Теперь посчитайте, сколько их всего.
+
+6, верно? Это и является доказательством того, что 3 × 2 = 6.
+
+Оцените этот сайт, и тогда вы сможете изучать такие науки на подобных сайтах!
+            
+            </div>  
+            <div class="chats" id="messages3">
+                <button class="close" id="close">x</button>
+                <div class="messagesdiv" id="themessages">
+                               
+                </div>
+                
+            </div>
+            <div class="open" id="open">
+                <input class="inpt" placeholder="Напишите что-то..." id="thetexts">
+                <button class="btn" onclick="send()" id="textsend">-></button>
+            </div>
+             <p class="text">Деление:</p>
+            <div class="rowdiv">
+                <div class="count2">1</div>
+                <div class="count2">1</div>
+                <div class="count3">2</div>
+                <div class="count3">2</div>
+                
+            </div>
+            <div class="explanation">Объяснение с делением: что именно означает 4 : 2 = 2?
+
+Ответ: У нас есть 4 квадратика. Когда мы видим «: 2», это означает, что мы должны разделить эти 4 квадратика на столько частей, какое число стоит после знака деления — в нашем примере на 2. Затем мы считаем, сколько квадратиков находится в каждой части. Мы видим, что в каждой части по 2 квадратика. Это и является доказательством того, что 4 : 2 = 2</div>           
+            
+            </div>           
+        <p class="text">Путь, время, скорость:</p>
+        <img class="img" src="physics.jpg">
+        <div class="explanation">Ребята, сегодня мы будем изучать путь, время и скорость. На картинке человек движется вперёд со скоростью 2 метра в секунду. Мы должны найти, сколько метров он пройдёт за 3 секунды.</div>                    
+        <div class="explanation">Чтобы понять эту задачу, мы должны представить себе сверху вниз столько секунд, сколько нам было указано, чтобы найти путь, пройденный человеком за это время. Каждой секунде мы должны дать столько метров, сколько человек проходит за одну секунду. После этого считаем, сколько метров у нас получилось в общем. Это и есть расстояние, которое человек прошёл за указанное время.</div>
+        <div class="animationdiv">
+            <table class="animable">
+                <th class="head">Секунды</th>
+                <th class="head">Путь<br>(в метрах)</th>
+                <tr>
+                    <td class="tr" id="time">1</td>
+                    <td class="tr2">2</td>
+                </tr>
+                <tr>
+                    
+                </tr>
+            </table>
+            <div class="object" id="object"></div>
+        </div>
+        <p class="mess">Выберите ответ нашей задачки, исходя из вашего мнения:</p>
+        <div class="container">
+        <table>
+            <tr>
+                <th>Секунды</th>
+                <th>Пройденное расстояние</th>
+                
+                
+            </tr>
+            <tr>
+                <td><div class="seconds">1</div></td>
+                <td><div class="contain">
+                    <div class="new">
+                        <p class="sign">2 метра</p>
+                    ______ ______</div></td>
+                    </div>
+                
+            </tr> 
+            <tr>
+                <td><div class="seconds">2</div></td>
+                <td><div class="contain">
+                    <div class="new">
+                        <p class="sign">2 метра</p>
+                    ______ ______</div></td>
+                    </div></td>
+                
+            </tr>   
+            <tr>
+                <td><div class="seconds">3</div></td>
+                <td><div class="contain">
+                    <div class="new">
+                        <p class="sign">2 метра</p>
+                    ______ ______</div></td>
+                    </div></td>
+            </tr>      
+            
+        </table>
+        <div class="explanation2">Чтобы понять эту задачу, мы должны представить себе сверху вниз столько секунд, сколько нам было указано, чтобы найти путь, пройденный человеком за это время. Каждой секунде мы должны дать столько метров, сколько человек проходит за одну секунду. После этого считаем, сколько метров у нас получилось в общем. Это и есть расстояние, которое человек прошёл за указанное время.
+
+3 × 2 = 6 метров.</div>
+        </div>
+        <div class="conts" id="question">
+            1) Вопрос 1. Сколько метров проедет машина за 3 секунды, если она движется со скоростью 5 метров в секунду?
+            <button class="questbtns" id="theright">A) 15 метров</button>
+            <button class="questbtns2">B) 10 метров</button>
+            <button class="questbtns2">C) 5 метров</button>
+        </div>
+       
+       
+    </div>
+        
+    </div>
+    </body>
+        
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            const socket = io()
+            let theinput2 = document.getElementById("thetexts")
+            theinput2.addEventListener("click", () => {
+                document.getElementById("messages3").style.opacity = '1'
+                document.getElementById("textsend").style.opacity = '1'
+            })            
+            const closebtn2 = document.getElementById("close")
+            closebtn2.addEventListener("click", () => {   
+                document.getElementById("messages3").style.opacity = '0'
+                document.getElementById("textsend").style.opacity = '0'
+            })
+            
+                
+            document.getElementById("textsend").addEventListener("click", () => {              
+            
+                let themessage = document.getElementById("thetexts").value
+                socket.emit("message", themessage)
+                
+                
+            })
+            socket.on("message", (text) => {
+                    const msg = document.createElement("div")
+                    msg.className = 'textmessage'
+                    let newup = JSON.stringify(text)
+                    newup = newup.slice(1, -1)
+                    msg.innerText = newup                    
+                    document.getElementById("themessages").appendChild(msg)
+            })     
+
+            document.getElementById("object").translateX = '200px'
+            let points = 0
+            
+            const correctans = document.querySelectorAll(".questbtns")
+            correctans.forEach(correct => {
+                correct.addEventListener("click", () => {
+                    let thepnts = 0
+                    correct.style.backgroundColor = 'green'
+                    const ifcorrect = correct.innerText
+                    const cont = document.createElement("div")
+                    cont.className = 'points'
+                    document.getElementById("lesson").appendChild(cont)
+                    cont.style.color = 'black'
+                    cont.innerHTML += `Вопрос: ` + document.getElementById("question").innerText + `<br>Ваш ответ: <p class='righttext2' id='true'></p>` +
+                    `Правильный ответ: <p class="righttext2" id='showcorrect'></p>`
+                    document.getElementById("true").innerText = ifcorrect 
+                    document.getElementById("showcorrect").innerText = correct.innerText
+                    const poins = document.createElement("p")
+                    poins.className = 'righttext2'
+                    thepnts += 5
+                    poins.innerText = 'Вашы очки: ' + thepnts + "⭐"
+                    cont.appendChild(poins)
+
+
+                })
+            }) 
+            let correctanswer = document.getElementById("theright").innerText        
+            const wrongans = document.querySelectorAll(".questbtns2")
+            wrongans.forEach(thecorrect => {
+                thecorrect.addEventListener("click", () => {
+                    
+                    thecorrect.style.backgroundColor =  'red'
+                    const wronganswer = document.createElement("button")
+                    wronganswer.innerText = thecorrect.innerText
+                    const showpoints = document.createElement("div")
+                    showpoints.className = "points"
+                    document.getElementById("lesson").appendChild(showpoints)
+                    showpoints.style.color = 'black'
+                    let textss = document.getElementById("question").innerText
+                    showpoints.innerHTML = 'Вопрос: ' + `Вопрос: Сколько метров проедет машина за 3 секунды, если она движется вперёд со скоростью 5 метров в секунду?
+
+` + '<br>Ваш ответ: <p class="righttext" id="result1"></p>'  
+                    document.getElementById("result1").innerText = wronganswer.innerText  
+                    
+                    showpoints.innerHTML += `Правильный ответ: <p class="righttext2" id="result2"></p>`
+                    document.getElementById("result2").innerText = correctanswer     
+                })
+            })
+            const gobtn = document.getElementById("go")
+            gobtn.addEventListener("click", () => {
+                const thediv = document.getElementById("lesson")
+                document.getElementById("lesson").innerHTML = `<p class="textss">Введите свою имю:</p><div class='newcont'>
+                    <input class="inpts" placeholder="Введите свою имю..." id="myname"> 
+                    <button class="compt2" id="moveon">Далее</button>                   
+                </div>`
+                thediv.style.backgroundColor = 'white'
+                document.getElementById("moveon").addEventListener("click", () => {
+                    
+                    let name = document.getElementById("myname").value
+                    thediv.innerHTML = `<div class="thequests">
+                        <p class="quest">Напишите свой ответ:</p>
+                        <p class="quest">1) Сколько метров проходит объект через 3 секунды если он его скорость = 2м/с в секунду?</p>
+                        <div class="newcont">
+                            <input class="inpts" placeholder="Введите свой ответ" id="inpt1">                            
+                        </div>
+                        <p class="quest">2) Сколько метров проходит объект через 2 секунды если он двигается на 1 метра вперед?</p>
+                        <input class="inpts" placeholder="Введите свой ответ" id="inpt2">
+                        <p class="quest">3) Сколько будет 8 разделить на 2?</p>
+                        <input class="inpts" placeholder="Введите свой ответ" id="inpt3">
+                        <button class="compt2" id="send">Отправить</button>
+                    </div>`
+                    let grades = 0
+                    document.getElementById("send").addEventListener("click", () => {
+                        document.getElementById("lesson").innerHTML += `
+                        <p class='restext'>Результать:</p>
+                            <div class="resultdiv" id="resultdiv"></div>` 
+                        
+                        
+                        let input1 = document.getElementById("inpt1").value
+                        if (input1 == '9') {
+                            
+                            grades = grades + 1
+                        }
+                        if (document.getElementById("inpt2").value == 2) {
+                            grades = grades + 1
+                        }
+                        if (document.getElementById("inpt3").value == 4) {
+                            grades = grades + 1
+                                                        
+                        }
+                        console.log("Мим баллы высокие", grades)
+                                                               
+
+                        
+                        
+                        socket.emit("thegrades", grades)
+                        socket.on("thegrades", (pnts) => {
+                            const results2 = document.getElementById("resultdiv")
+                            results2.innerText += pnts
+                        })                                               
+                                   
+                    })
+                })
+            })
+            
+            
+            if (document.getElementById("object").style.backgroundColor = 'green') {
+                document.getElementById("object").innerText = '2 meters'
+            }
+            let second = 0
+            let timer = setInterval(() => {
+                second += 1
+                if (second == 1) {
+                    const obj = document.getElementById("object")
+                    
+                    document.getElementById("time").innerText = '1'
+                    
+                }
+                if (second == 2) {
+                    
+                    document.getElementById("time").innerText = '2'
+                }
+                if (second == 3) {
+                    
+                    document.getElementById("time").innerText = '3'
+                    second = 0
+                    
+                }
+                
+                
+            }, 1000)    
+                       
+            
+               
+            document.getElementById("messages").style.opacity = '0'         
+            const closebtn = document.getElementById("close2")
+            closebtn.addEventListener("click", () => {   
+                document.getElementById("messages3").style.opacity = '0'
+                document.getElementById("textsend").style.opacity = '0'
+                document.getElementById("messages3").style.left = '-500px'
+            })
+            
+                    
+            
+              
+            let theinputt = document.getElementById("thetexts")
+            theinputt.addEventListener("click", () => {
+                document.getElementById("messages3").style.opacity = '1'
+                document.getElementById("textsend").style.opacity = '1'
+                document.getElementById("messages3").style.left = 'auto'
+            })  
+            
+                                           
+        </script>    
+    </body>
+</html>
